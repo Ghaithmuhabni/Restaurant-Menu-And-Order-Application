@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen>
         title: const Text('Masa Seçin'),
         content: DropdownButtonFormField<int>(
           value: _selectedTable,
-          items: List.generate(20, (index) => index + 1)
+          items: List.generate(10, (index) => index + 1)
               .map((e) => DropdownMenuItem(value: e, child: Text('Masa $e')))
               .toList(),
           onChanged: (value) => Navigator.pop(context, value),
