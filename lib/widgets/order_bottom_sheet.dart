@@ -5,7 +5,7 @@ class OrderBottomSheet extends StatelessWidget {
   final List<MenuItem> cartItems;
   final Function(int) onRemove;
   final int selectedTable;
-  final Function() onSelectTable;
+  final VoidCallback onSelectTable;
 
   const OrderBottomSheet({
     super.key,
@@ -28,7 +28,8 @@ class OrderBottomSheet extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Masa: $selectedTable', style: Theme.of(context).textTheme.titleLarge),
+              Text('Masa: $selectedTable',
+                  style: Theme.of(context).textTheme.titleLarge),
               IconButton(
                 icon: const Icon(Icons.edit),
                 onPressed: onSelectTable,
@@ -51,15 +52,15 @@ class OrderBottomSheet extends StatelessWidget {
               },
             ),
           ),
-          Divider(),
+          const Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Toplam:', style: Theme.of(context).textTheme.titleLarge),
-                Text('₺${_calculateTotal().toStringAsFixed(2)}', 
-                     style: Theme.of(context).textTheme.titleLarge),
+                Text('₺${_calculateTotal().toStringAsFixed(2)}',
+                    style: Theme.of(context).textTheme.titleLarge),
               ],
             ),
           ),

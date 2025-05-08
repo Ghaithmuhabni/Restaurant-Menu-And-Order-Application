@@ -54,18 +54,25 @@ class _HomeScreenState extends State<HomeScreen>
     });
   }
 
-  void _selectTable() async {
+  Future<void> _selectTable(BuildContext context) async {
     final result = await showDialog<int>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Masa Seçin'),
-        content: DropdownButtonFormField<int>(
-          value: _selectedTable,
-          items: List.generate(10, (index) => index + 1)
-              .map((e) => DropdownMenuItem(value: e, child: Text('Masa $e')))
-              .toList(),
-          onChanged: (value) => Navigator.pop(context, value),
-        ),
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) {
+          return AlertDialog(
+            title: const Text('Masa Seçin'),
+            content: DropdownButtonFormField<int>(
+              value: _selectedTable,
+              items: List.generate(10, (index) => index + 1)
+                  .map(
+                      (e) => DropdownMenuItem(value: e, child: Text('Masa $e')))
+                  .toList(),
+              onChanged: (value) {
+                Navigator.pop(context, value);
+              },
+            ),
+          );
+        },
       ),
     );
 
@@ -87,24 +94,31 @@ class _HomeScreenState extends State<HomeScreen>
         actions: [
           IconButton(
             icon: badges.Badge(
-              badgeStyle: badges.BadgeStyle(
-                badgeColor: Colors.red, // İsteğe bağlı stil
-              ),
               badgeContent: Text(
-                // Artık çalışacak
                 _cartItems.length.toString(),
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
               child: const Icon(Icons.shopping_cart),
             ),
             onPressed: () => showModalBottomSheet(
               context: context,
-              builder: (context) => OrderBottomSheet(
-                cartItems: _cartItems,
-                onRemove: _removeFromCart,
-                selectedTable: _selectedTable,
-                onSelectTable: _selectTable,
-              ),
+              isScrollControlled: true,
+              builder: (context) {
+                return StatefulBuilder(
+                  builder: (context, setModalState) {
+                    return OrderBottomSheet(
+                      cartItems: _cartItems,
+                      onRemove: (index) {
+                        setModalState(() {
+                          _removeFromCart(index);
+                        });
+                      },
+                      selectedTable: _selectedTable,
+                      onSelectTable: () => _selectTable(context),
+                    );
+                  },
+                );
+              },
             ),
           )
         ],
