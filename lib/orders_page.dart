@@ -15,11 +15,11 @@ class OrdersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Orders'),
+        title: const Text('Siparişler'),
         centerTitle: true,
       ),
       body: orders.isEmpty
-          ? const Center(child: Text('No active orders'))
+          ? const Center(child: Text('Aktif sipariş yok'))
           : ListView.builder(
               padding: const EdgeInsets.all(16),
               itemCount: orders.length,
@@ -40,7 +40,7 @@ class OrdersPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Table ${order.tableNumber}',
+                              'Masa ${order.tableNumber}',
                               style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -63,7 +63,7 @@ class OrdersPage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(item.name),
-                                  Text('\$${item.price.toStringAsFixed(2)}'),
+                                  Text('\TL${item.price.toStringAsFixed(2)}'),
                                 ],
                               ),
                             )),
@@ -72,13 +72,13 @@ class OrdersPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text(
-                              'Total:',
+                              'Toplam:',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
-                              '\$${order.totalPrice.toStringAsFixed(2)}',
+                              '\TL${order.totalPrice.toStringAsFixed(2)}',
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
@@ -95,7 +95,7 @@ class OrdersPage extends StatelessWidget {
                             ),
                             onPressed: () => onOrderComplete(order.tableNumber),
                             child: const Text(
-                              'Order Completed',
+                              'Sipariş Tamamlandı',
                               style: TextStyle(
                                 color: Colors.black,
                               ),

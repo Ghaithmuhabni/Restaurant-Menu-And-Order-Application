@@ -45,7 +45,7 @@ class OrderBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Table: $selectedTable',
+                'Masa: $selectedTable',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: isTableOccupied ? Colors.red : Colors.black,
                     ),
@@ -80,7 +80,7 @@ class OrderBottomSheet extends StatelessWidget {
                   onDismissed: (direction) => onRemove(index),
                   child: ListTile(
                     title: Text(item.name),
-                    subtitle: Text('\$${item.price.toStringAsFixed(2)}'),
+                    subtitle: Text('\TL${item.price.toStringAsFixed(2)}'),
                     trailing: IconButton(
                       icon: const Icon(Icons.remove_circle),
                       onPressed: () => onRemove(index),
@@ -96,8 +96,8 @@ class OrderBottomSheet extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Total:', style: Theme.of(context).textTheme.titleLarge),
-                Text('\$${_calculateTotal().toStringAsFixed(2)}',
+                Text('Toplam:', style: Theme.of(context).textTheme.titleLarge),
+                Text('\TL${_calculateTotal().toStringAsFixed(2)}',
                     style: Theme.of(context).textTheme.titleLarge),
               ],
             ),
@@ -114,7 +114,7 @@ class OrderBottomSheet extends StatelessWidget {
               ),
               onPressed: isTableOccupied ? null : onConfirmOrder,
               child: const Text(
-                'Confirm Order',
+                'Sepete Onayla',
                 style: TextStyle(color: Colors.black),
               ),
             ),

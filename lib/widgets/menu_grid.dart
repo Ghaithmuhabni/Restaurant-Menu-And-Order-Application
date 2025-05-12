@@ -53,7 +53,7 @@ class MenuGrid extends StatelessWidget {
                   children: [
                     Text(item.name,
                         style: Theme.of(context).textTheme.titleMedium),
-                    Text('\$${item.price.toStringAsFixed(2)}',
+                    Text('\TL${item.price.toStringAsFixed(2)}',
                         style: TextStyle(color: Colors.black)),
                     const SizedBox(height: 12),
                     SizedBox(
@@ -65,7 +65,7 @@ class MenuGrid extends StatelessWidget {
                           color: Colors.orange,
                         ),
                         label: const Text(
-                          'Add to Cart',
+                          'Sepete Ekle',
                           style: TextStyle(color: Colors.orange),
                         ),
                         onPressed: () => onAddToCart(item),

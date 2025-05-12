@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen>
     final result = await showDialog<int>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Select Table'),
+        title: const Text('Bir masa seçin'),
         content: StatefulBuilder(
           builder: (context, setState) {
             return DropdownButtonFormField<int>(
@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen>
                   .map((e) => DropdownMenuItem(
                         value: e,
                         child: Text(
-                          'Table $e',
+                          'Masa $e',
                           style: TextStyle(
                             color: _occupiedTables.contains(e)
                                 ? Colors.grey
