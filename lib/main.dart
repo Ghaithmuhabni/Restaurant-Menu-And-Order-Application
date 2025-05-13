@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen>
   void _confirmOrder() {
     if (_cartItems.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Your cart is empty')),
+        const SnackBar(content: Text('Sepete bos bir şey eklemediniz')),
       );
       return;
     }
@@ -256,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen>
                 onPressed: () {
                   if (_cartItems.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Your cart is empty')),
+                      const SnackBar(content: Text('Sepetiniz boş')),
                     );
                     return;
                   }

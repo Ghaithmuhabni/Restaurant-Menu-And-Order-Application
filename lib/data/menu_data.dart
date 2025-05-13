@@ -8,7 +8,7 @@ final List<String> categories = [
 ];
 
 final List<MenuItem> menuItems = [
-  // ANA YEMEKLER (10 items)
+  // ANA YEMEKLER 
   MenuItem(
     id: 'm1',
     name: 'Köfte',
@@ -80,7 +80,7 @@ final List<MenuItem> menuItems = [
     image: 'images/balik.jpg',
   ),
 
-  // BAŞLANGIÇLAR (10 items)
+  // BAŞLANGIÇLAR
   MenuItem(
     id: 'b1',
     name: 'Mercimek Çorbası',
@@ -146,7 +146,7 @@ final List<MenuItem> menuItems = [
   ),
 
 
-  // İÇECEKLER (10 items)
+  // İÇECEKLER 
   MenuItem(
     id: 'i1',
     name: 'Ayran',
@@ -211,7 +211,7 @@ final List<MenuItem> menuItems = [
     image: 'images/soda.jpg',
   ),
 
-  // TATLILAR (10 items)
+  // TATLILAR 
   MenuItem(
     id: 't1',
     name: 'Baklava',
