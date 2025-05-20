@@ -17,9 +17,9 @@ class MenuGrid extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.8,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
+        childAspectRatio: 0.8,
       ),
       itemCount: items.length,
       itemBuilder: (context, index) {
@@ -30,14 +30,14 @@ class MenuGrid extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
                 borderRadius:
                     const BorderRadius.vertical(top: Radius.circular(15)),
                 child: Image.asset(
                   item.image,
-                  height: 275,
+                  height: 120,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) => Container(
                     height: 120,
@@ -70,6 +70,8 @@ class MenuGrid extends StatelessWidget {
                         ),
                         onPressed: () => onAddToCart(item),
                         style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero),
                           padding: const EdgeInsets.symmetric(vertical: 8),
                         ),
                       ),

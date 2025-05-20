@@ -246,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen>
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: badges.Badge(
-              position: badges.BadgePosition.topEnd(top: -10, end: -10),
+              position: badges.BadgePosition.topEnd(top: -5, end: -8),
               badgeContent: Text(
                 _cartItems.length.toString(),
                 style: const TextStyle(color: Colors.white),
